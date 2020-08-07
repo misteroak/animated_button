@@ -99,13 +99,17 @@ class _AnimatedButtonState extends State<AnimatedButton> {
     });
   }
 
-  void _unPressedOnTapUp(_) => _unPressed();
+  void _unPressedOnTapUp(_) {
+    setState(() {
+      _position = 4;
+    });
+    widget.onPressed();
+  }
 
   void _unPressed() {
     setState(() {
       _position = 4;
     });
-    widget.onPressed();
   }
 }
 
